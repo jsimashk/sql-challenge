@@ -1,10 +1,36 @@
---select count(*) from departments
---select count(*) from dept_emp
---select count(*) from dept_manager
---select count(*) from employees
---select count(*) from salaries
---select count(*) from titles
+/*
+--data checks 
+select count(*) from departments
+select count(*) from dept_emp
+select count(*) from dept_manager
+select count(*) from employees
+select count(*) from salaries
+select count(*) from titles
 
+--check if you have employees with multiple salaries/raise
+select emp_no from salaries 
+group by emp_no
+having count(*)>1
+limit 100
+
+--check if you have employees with multiple titles/promotions
+select emp_no from titles
+group by emp_no
+having count(*)>1
+limit 100
+
+select * from titles where emp_no = 10004
+
+--check if any employees switched departments more than once
+select emp_no from dept_emp
+group by emp_no
+having count(*)>2
+limit 100
+
+select * from dept_emp where emp_no = 10010
+
+
+*/
 
 --List the following details of each employee: employee number, last name, first name, gender, and salary.
 select e.emp_no, last_name, first_name, gender, salary
